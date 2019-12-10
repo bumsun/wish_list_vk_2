@@ -1,18 +1,22 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-*.lock
+# Folder view configuration files
+.DS_Store
+Desktop.ini
 
-# Dependency directories
-package-lock.json
-/node_modules
+# Thumbnail cache files
+._*
+Thumbs.db
 
-# Optional npm cache directory
-.npm
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
 
-# Prod Bundle
-/build
+# Compiled Python files
+*.pyc
 
-.vscode
-.idea
+# Compiled C++ files
+*.out
+
+# Application specific files
+venv
+node_modules
+.sass-cache

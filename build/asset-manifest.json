@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/wish_list_vk_2/static/js/main.a99a7be4.chunk.js",
+    "main.js.map": "/wish_list_vk_2/static/js/main.a99a7be4.chunk.js.map",
+    "runtime-main.js": "/wish_list_vk_2/static/js/runtime-main.959e5bb1.js",
+    "runtime-main.js.map": "/wish_list_vk_2/static/js/runtime-main.959e5bb1.js.map",
+    "static/css/2.2cfa1b23.chunk.css": "/wish_list_vk_2/static/css/2.2cfa1b23.chunk.css",
+    "static/js/2.d866d0d5.chunk.js": "/wish_list_vk_2/static/js/2.d866d0d5.chunk.js",
+    "static/js/2.d866d0d5.chunk.js.map": "/wish_list_vk_2/static/js/2.d866d0d5.chunk.js.map",
+    "index.html": "/wish_list_vk_2/index.html",
+    "precache-manifest.19da987044ef807f396c23fefa18f88c.js": "/wish_list_vk_2/precache-manifest.19da987044ef807f396c23fefa18f88c.js",
+    "service-worker.js": "/wish_list_vk_2/service-worker.js",
+    "static/css/2.2cfa1b23.chunk.css.map": "/wish_list_vk_2/static/css/2.2cfa1b23.chunk.css.map",
+    "static/js/2.d866d0d5.chunk.js.LICENSE": "/wish_list_vk_2/static/js/2.d866d0d5.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.959e5bb1.js",
+    "static/css/2.2cfa1b23.chunk.css",
+    "static/js/2.d866d0d5.chunk.js",
+    "static/js/main.a99a7be4.chunk.js"
+  ]
+}
