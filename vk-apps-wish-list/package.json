@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://bumsun.github.io/vk-apps-wish-list/"
+  "homepage": "https://bumsun.github.io/wish_list_vk_2/"
   "scripts": {
     "start": "cross-env PORT=10888 react-scripts start",
     "build": "react-scripts build"
