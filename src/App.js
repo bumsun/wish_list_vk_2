@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { View, Panel, PanelHeader, Group, List, Cell } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
+import MyEpic from './MyEpic.js';
 
 function App () {
-  return new Epic();
+  return new MyEpic();
   // return (
   //   <View activePanel="main">
   //     <Panel id="main">

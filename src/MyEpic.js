@@ -1,4 +1,14 @@
-class Epic extends React.Component {
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { View, Panel, PanelHeader, Group, List, Cell,Tabbar,TabbarItem,Epic} from '@vkontakte/vkui';
+import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
+import Icon28Search from '@vkontakte/icons/dist/28/search';
+import Icon28Messages from '@vkontakte/icons/dist/28/messages';
+import Icon28Notifications from '@vkontakte/icons/dist/28/notifications';
+import Icon28More from '@vkontakte/icons/dist/28/more';
+
+
+class MyEpic extends React.Component {
   constructor (props) {
     super(props);
 
@@ -80,4 +90,5 @@ class Epic extends React.Component {
   }
 }
 
-<Epic />
+// <MyEpic />
+export default MyEpic; 
