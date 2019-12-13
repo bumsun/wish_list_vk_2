@@ -6,20 +6,59 @@ import Icon28Search from '@vkontakte/icons/dist/28/search';
 import Icon28Messages from '@vkontakte/icons/dist/28/messages';
 import Icon28Notifications from '@vkontakte/icons/dist/28/notifications';
 import Icon28More from '@vkontakte/icons/dist/28/more';
-
+import connect from '@vkontakte/vk-connect';
 
 class MyEpic extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
-      activeStory: 'more'
+      activeStory: 'wish',
+      avatar: null
     };
+
     this.onStoryChange = this.onStoryChange.bind(this);
+
   }
 
   onStoryChange (e) {
     this.setState({ activeStory: e.currentTarget.dataset.story })
+  }
+
+  componentDidMount() {
+    connect.subscribe((e) => {
+      if (e.detail.hasOwnProperty('type')) {
+        switch (e.detail.type) {
+          case 'VKWebAppGetUserInfoResult':
+            console.log("e.detail.data = " + JSON.stringify(e.detail.data));
+            this.setState({ fetchedUser: e.detail.data });
+            break;
+          case 'VKWebAppGeodataResult':
+            this.setState({ 
+              geodata: {
+                lat: e.detail.data.lat,
+                lng: e.detail.data.long
+              }
+            });
+            break;
+          case 'VKWebAppAccessTokenReceived':
+            this.setState({
+              token: e.detail.data.access_token
+            });
+            this.getFriends();
+            break;
+          case 'VKWebAppCallAPIMethodResult':
+            debugger;
+            if (e.detail.data.request_id === '34bc') {
+              this.setState({ friends: e.detail.data.response.items });
+            }
+            break;
+          default:
+            break;
+        }
+      }
+    });
+    connect.send('VKWebAppGetUserInfo', {});
   }
 
   render () {
@@ -51,7 +90,7 @@ class MyEpic extends React.Component {
         <View id="wish" activePanel="wish">
           <Panel id="wish">
             <PanelHeader>Wish</PanelHeader>
-              <Avatar src="https://pp.userapi.com/c841034/v841034569/3b8c1/pt3sOw_qhfg.jpg" size={80}/>
+              <Avatar src={this.state.fetchedUser} size={80}/>
           </Panel>
         </View>
         <View id="friends" activePanel="friends">
