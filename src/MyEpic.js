@@ -29,60 +29,38 @@ class MyEpic extends React.Component {
         <Tabbar>
           <TabbarItem
             onClick={this.onStoryChange}
-            selected={this.state.activeStory === 'feed'}
-            data-story="feed"
-            text="Новости"
+            selected={this.state.activeStory === 'wish'}
+            data-story="wish"
+            text="Мои желания"
           ><Icon28Newsfeed /></TabbarItem>
           <TabbarItem
             onClick={this.onStoryChange}
-            selected={this.state.activeStory === 'discover'}
-            data-story="discover"
-            text="Поиск"
+            selected={this.state.activeStory === 'friends'}
+            data-story="friends"
+            text="friends"
           ><Icon28Search /></TabbarItem>
           <TabbarItem
             onClick={this.onStoryChange}
-            selected={this.state.activeStory === 'messages'}
-            data-story="messages"
+            selected={this.state.activeStory === 'feed'}
+            data-story="feed"
             label="12"
-            text="Сообщения"
+            text="Лента"
           ><Icon28Messages /></TabbarItem>
-          <TabbarItem
-            onClick={this.onStoryChange}
-            selected={this.state.activeStory === 'notifications'}
-            data-story="notifications"
-            text="Уведомлен."
-          ><Icon28Notifications /></TabbarItem>
-          <TabbarItem
-            onClick={this.onStoryChange}
-            selected={this.state.activeStory === 'more'}
-            data-story="more"
-            text="Ещё"
-          ><Icon28More /></TabbarItem>
         </Tabbar>
       }>
+        <View id="wish" activePanel="wish">
+          <Panel id="wish">
+            <PanelHeader>Wish</PanelHeader>
+          </Panel>
+        </View>
+        <View id="friends" activePanel="friends">
+          <Panel id="friends">
+            <PanelHeader>Friends</PanelHeader>
+          </Panel>
+        </View>
         <View id="feed" activePanel="feed">
           <Panel id="feed">
             <PanelHeader>Feed</PanelHeader>
-          </Panel>
-        </View>
-        <View id="discover" activePanel="discover">
-          <Panel id="discover">
-            <PanelHeader>Discover</PanelHeader>
-          </Panel>
-        </View>
-        <View id="messages" activePanel="messages">
-          <Panel id="messages">
-            <PanelHeader>Messages</PanelHeader>
-          </Panel>
-        </View>
-        <View id="notifications" activePanel="notifications">
-          <Panel id="notifications">
-            <PanelHeader>Notifications</PanelHeader>
-          </Panel>
-        </View>
-        <View id="more" activePanel="more">
-          <Panel id="more">
-            <PanelHeader>More</PanelHeader>
           </Panel>
         </View>
       </Epic>
