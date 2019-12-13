@@ -90,7 +90,10 @@ class MyEpic extends React.Component {
         <View id="wish" activePanel="wish">
           <Panel id="wish">
             <PanelHeader>Wish</PanelHeader>
-              <Avatar src={this.state.fetchedUser} size={80}/>
+              <Div>
+                  JSON = {this.state.fetchedUser} 
+              </Div>
+              <Avatar src="https://sun9-11.userapi.com/c846420/v846420985/1526cd/YmiB_KSW1Q8.jpg?ava=1"size={80}/>
           </Panel>
         </View>
         <View id="friends" activePanel="friends">
