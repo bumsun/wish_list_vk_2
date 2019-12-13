@@ -26,21 +26,16 @@ class MyEpic extends React.Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount()");
     connect.subscribe((e) => {
+      console.log("e = " + JSON.stringify(e));
       if (e.detail.hasOwnProperty('type')) {
-        switch (e.detail.type) {
+        switch (e.detail.handler) {
           case 'VKWebAppGetUserInfoResult':
             console.log("e.detail.data = " + JSON.stringify(e.detail.data));
             this.setState({ fetchedUser: e.detail.data });
             break;
-          case 'VKWebAppGeodataResult':
-            this.setState({ 
-              geodata: {
-                lat: e.detail.data.lat,
-                lng: e.detail.data.long
-              }
-            });
+          case 'VKWebAppInit':
+            connect.sendPromise('VKWebAppGetUserInfo');
             break;
           case 'VKWebAppAccessTokenReceived':
             this.setState({
@@ -59,17 +54,19 @@ class MyEpic extends React.Component {
         }
       }
     });
-    connect.send('VKWebAppGetUserInfo', {});
 
-    connect
-      .sendPromise('VKWebAppGetUserInfo')
-      .then(data => {
-        // Обработка события в случае успеха
-        console.log("e.detail.data = " + JSON.stringify(data));
-      })
-      .catch(error => {
-        // Обработка события в случае ошибки
-      });
+    
+
+    // connect
+    //   .sendPromise('VKWebAppGetUserInfo')
+    //   .then(data => {
+    //     // Обработка события в случае успеха
+    //     console.log("data= " + JSON.stringify(data));
+    //   })
+    //   .catch(error => {
+    //     // Обработка события в случае ошибки
+    //     console.log("error= " + JSON.stringify(error));
+    //   });
   }
 
   render () {
