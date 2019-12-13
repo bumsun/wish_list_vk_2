@@ -92,7 +92,7 @@ class MyEpic extends React.Component {
           <Panel id="wish">
             <PanelHeader>Wish</PanelHeader>
               <Div>
-                  JSON = {this.state.fetchedUser} 
+                  JSON2 = {this.state.fetchedUser} 
               </Div>
               <Avatar src="https://sun9-11.userapi.com/c846420/v846420985/1526cd/YmiB_KSW1Q8.jpg?ava=1"size={80}/>
           </Panel>
