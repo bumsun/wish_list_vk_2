@@ -60,6 +60,16 @@ class MyEpic extends React.Component {
       }
     });
     connect.send('VKWebAppGetUserInfo', {});
+
+    connect
+      .sendPromise('VKWebAppGetUserInfo')
+      .then(data => {
+        // Обработка события в случае успеха
+        console.log("e.detail.data = " + JSON.stringify(data));
+      })
+      .catch(error => {
+        // Обработка события в случае ошибки
+      });
   }
 
   render () {
@@ -92,7 +102,7 @@ class MyEpic extends React.Component {
           <Panel id="wish">
             <PanelHeader>Wish</PanelHeader>
               <Div>
-                  JSON2 = {this.state.fetchedUser} 
+                  JSON3 = {this.state.fetchedUser} 
               </Div>
               <Avatar src="https://sun9-11.userapi.com/c846420/v846420985/1526cd/YmiB_KSW1Q8.jpg?ava=1"size={80}/>
           </Panel>
