@@ -51,17 +51,7 @@ class MyEpic extends React.Component {
         <View id="wish" activePanel="wish">
           <Panel id="wish">
             <PanelHeader>Wish</PanelHeader>
-              <Group title="Big avatar (80px)">
-                <Cell
-                  photo="https://pp.userapi.com/c841034/v841034569/3b8c1/pt3sOw_qhfg.jpg"
-                  description="VKontakte"
-                  bottomContent={<Button>Добавить</Button>}
-                  before={<Avatar src="https://pp.userapi.com/c841034/v841034569/3b8c1/pt3sOw_qhfg.jpg" size={80}/>}
-                  size="l"
-                >
-                  Юлия Рабчанова
-                </Cell>
-              </Group>
+              <Avatar src="https://pp.userapi.com/c841034/v841034569/3b8c1/pt3sOw_qhfg.jpg" size={80}/>
           </Panel>
         </View>
         <View id="friends" activePanel="friends">
