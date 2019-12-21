@@ -277,11 +277,10 @@ class MyEpic extends React.Component {
 	              	// this.setState({wish_price: "Цена не известна"});
 	                this.setState({wish_photo_url: "https://vk.com/images/vkapp_i.png"});
 	                this.setState({wish_description: ""});
-	                this.setState({wish_name: value});
+	                
                   return;
               }
               value = value.replace("m.market.yandex.ru","market.yandex.ru")
-              
 
               this.setState({wish_reference_url: value});
               
@@ -294,6 +293,9 @@ class MyEpic extends React.Component {
               }) 
               .catch(error => console.error(error));
               
+              break;
+          case 'wish_name':
+              this.setState({wish_name: value});
               break;
           default:
               console.log('unknown name', name);
@@ -737,10 +739,16 @@ class MyEpic extends React.Component {
               <a href="https://market.yandex.ru/">Yandex Market</a> - перейдите для поиска своего подарка
             </Div>
              <FormLayout>
-              <FormLayoutGroup top="Напишите название или вставьте ссылку из Яндекс маркета">
-              <Tooltip text="Вставьте ссылку, и вся информация о продукте заполнится автоматически" cornerOffset={-10}
+              <FormLayoutGroup top="Вставьте ссылку на продукт">
+              <Tooltip text="Если ссылка из Яндекс маркета, то вся информация о продукте заполнится автоматически" cornerOffset={-10}
                     offsetX={7} alignX="right" onClose={() => this.setState({ tooltip1: false})} isShown={this.state.tooltip1}>
                 <Input top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
+                {
+                  this.state.wish_reference_url != undefined && this.state.wish_name == undefined &&
+                    <Input top="Напишите название подарка" onChange={this.handleChangeForAddWish} name="wish_name" />
+                }
+                
+
               </Tooltip>
                 
               </FormLayoutGroup>
