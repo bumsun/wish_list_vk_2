@@ -737,7 +737,7 @@ class MyEpic extends React.Component {
               <a href="https://market.yandex.ru/">Yandex Market</a> - перейдите для поиска своего подарка
             </Div>
              <FormLayout>
-              <FormLayoutGroup top="Вставьте ссылку из Яндекс маркета">
+              <FormLayoutGroup top="Напишите название или вставьте ссылку из Яндекс маркета">
               <Tooltip text="Вставьте ссылку, и вся информация о продукте заполнится автоматически" cornerOffset={-10}
                     offsetX={7} alignX="right" onClose={() => this.setState({ tooltip1: false})} isShown={this.state.tooltip1}>
                 <Input top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
