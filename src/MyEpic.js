@@ -277,7 +277,7 @@ class MyEpic extends React.Component {
 	              	// this.setState({wish_price: "Цена не известна"});
 	                this.setState({wish_photo_url: "https://vk.com/images/vkapp_i.png"});
 	                this.setState({wish_description: ""});
-	                
+	                this.setState({wish_reference_url: value});
                   return;
               }
               value = value.replace("m.market.yandex.ru","market.yandex.ru")
@@ -743,15 +743,15 @@ class MyEpic extends React.Component {
               <Tooltip text="Если ссылка из Яндекс маркета, то вся информация о продукте заполнится автоматически" cornerOffset={-10}
                     offsetX={7} alignX="right" onClose={() => this.setState({ tooltip1: false})} isShown={this.state.tooltip1}>
                 <Input top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
-                {
-                  this.state.wish_reference_url != undefined && this.state.wish_name == undefined &&
-                    <Input top="Напишите название подарка" onChange={this.handleChangeForAddWish} name="wish_name" />
-                }
-                
-
               </Tooltip>
-                
               </FormLayoutGroup>
+              {
+                
+                this.state.wish_reference_url != undefined && this.state.wish_reference_url.length > 1 && this.state.wish_reference_url.indexOf("market.yandex.ru") == -1 &&
+                  <FormLayoutGroup top="Напишите название подарка">
+                  <Input onChange={this.handleChangeForAddWish} name="wish_name" />
+                  </FormLayoutGroup>
+              }
             </FormLayout>
 
            
