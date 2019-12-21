@@ -5,6 +5,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import MyEpic from './MyEpic.js';
 
 function App () {
+  
   return new MyEpic();
   // return (
   //   <View activePanel="main">
