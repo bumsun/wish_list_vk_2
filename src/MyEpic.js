@@ -521,7 +521,7 @@ class MyEpic extends React.Component {
                     <Cell 
                       key={index}
                       onClick={this.onGiftClickHandler.bind(this,item)}
-                      style={{opacity: item.already_presented && item.already_presented != this.state.user_owner_id  ? 0.3 : 1}}
+                      style={{opacity: item.already_presented && item.owner_id != undefined && item.owner_id != this.state.user_owner_id  ? 0.3 : 1}}
                       before={
                         <img 
                           style={{ 
@@ -536,7 +536,7 @@ class MyEpic extends React.Component {
                       description={
                         item.price != undefined && item.already_presented == undefined ?
                        item.price+" ₽" :
-                        item.already_presented != undefined && item.already_presented != this.state.user_owner_id  &&
+                        item.already_presented != undefined && item.owner_id != undefined && item.owner_id != this.state.user_owner_id  &&
                         "Подарок забронирован"} 
                     >
                     {item.name}
