@@ -11,10 +11,10 @@ import Icon28More from '@vkontakte/icons/dist/28/more';
 import Icon24Share from '@vkontakte/icons/dist/24/share'
 import Icon24Back from '@vkontakte/icons/dist/24/back'
 import Icon24ShareOutline from '@vkontakte/icons/dist/24/share_outline';
-import Icon20GiftOutline from '@vkontakte/icons/dist/20/gift_outline';
-import Icon20UserOutline from '@vkontakte/icons/dist/20/user_outline';
-import Icon20FollowersOutline from '@vkontakte/icons/dist/20/followers_outline';
-import Icon20ArticleBoxOutline from '@vkontakte/icons/dist/20/article_box_outline';
+import Icon24Gift from '@vkontakte/icons/dist/24/gift';
+import Icon24User from '@vkontakte/icons/dist/24/user';
+import Icon24Newsfeed from '@vkontakte/icons/dist/24/newsfeed';
+import Icon24Favorite from '@vkontakte/icons/dist/24/favorite';
 
 import connect from '@vkontakte/vk-connect';
 import './App.css';
@@ -430,25 +430,25 @@ class MyEpic extends React.Component {
             selected={this.state.activeStory === 'wish'}
             data-story="wish"
             text="Мои желания"
-          ><Icon20GiftOutline /></TabbarItem>
+          ><Icon24Gift /></TabbarItem>
           <TabbarItem
             onClick={this.onStoryChange}
             selected={this.state.activeStory === 'friends'}
             data-story="friends"
             text="Друзья"
-          ><Icon20UserOutline /></TabbarItem>
+          ><Icon24User /></TabbarItem>
           <TabbarItem
             onClick={this.onStoryChange}
             selected={this.state.activeStory === 'feed'}
             data-story="feed"
             text="Лента"
-          ><Icon20FollowersOutline /></TabbarItem>
+          ><Icon24Newsfeed/></TabbarItem>
           <TabbarItem
             onClick={this.onStoryChange}
             selected={this.state.activeStory === 'list_presents'}
             data-story="list_presents"
             text="Я подарю"
-          ><Icon20ArticleBoxOutline /></TabbarItem>
+          ><Icon24Favorite/></TabbarItem>
         </Tabbar>
       }>
         <View id="wish" activePanel="wish">
