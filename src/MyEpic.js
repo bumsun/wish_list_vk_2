@@ -230,14 +230,17 @@ class MyEpic extends React.Component {
             
             break;
           case 'VKWebAppAccessTokenReceived':
-			this.setState({ authToken : e.detail.data.access_token });
-			this.getFriends()
-			break;
+    			this.setState({ authToken : e.detail.data.access_token });
+    			this.getFriends()
+    			break;
           case 'VKWebAppCallAPIMethodResult':
             debugger;
             if (e.detail.data.request_id === '34bc') {
               this.setState({ friends: e.detail.data.response.items });
             }
+            break;
+          case 'VKWebAppGetAuthToken':
+            this.getFriends()
             break;
           default:
             break;
@@ -249,10 +252,11 @@ class MyEpic extends React.Component {
     connect.send("VKWebAppGetAuthToken", {"app_id": 7241610, "scope": "friends"});
 
     // connect
-    //   .sendPromise('VKWebAppGetUserInfo')
+    //   .sendPromise('VKWebAppGetAuthToken')
     //   .then(data => {
     //     // Обработка события в случае успеха
     //     console.log("data= " + JSON.stringify(data));
+    //     
     //   })
     //   .catch(error => {
     //     // Обработка события в случае ошибки
@@ -735,9 +739,6 @@ class MyEpic extends React.Component {
         <View id="add_wish" activePanel="add_wish">
           <Panel id="add_wish">
           	<PanelHeader left={<HeaderButton onClick={this.onBackClick}><Icon24Back/></HeaderButton>}> Добавить Желание</PanelHeader>
-          	<Div>
-              <a href="https://market.yandex.ru/">Yandex Market</a> - перейдите для поиска своего подарка
-            </Div>
              <FormLayout>
               <FormLayoutGroup top="Вставьте ссылку на продукт">
               <Tooltip text="Если ссылка из Яндекс маркета, то вся информация о продукте заполнится автоматически" cornerOffset={-10}
