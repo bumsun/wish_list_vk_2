@@ -96,6 +96,7 @@ class MyEpic extends React.Component {
       this.historyScreen.push(e.currentTarget.dataset.story)
     }else{
       this.historyScreen = [e.currentTarget.dataset.story]
+      connect.send("VKWebAppGetAuthToken", {"app_id": 7241610, "scope": "friends"});
     }
   	
     this.setState({ activeStory: e.currentTarget.dataset.story })
@@ -249,7 +250,7 @@ class MyEpic extends React.Component {
     });
     connect.send('VKWebAppInit');
     connect.send('VKWebAppGetUserInfo', {});
-    connect.send("VKWebAppGetAuthToken", {"app_id": 7241610, "scope": "friends"});
+    
 
     // connect
     //   .sendPromise('VKWebAppGetAuthToken')
