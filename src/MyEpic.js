@@ -740,6 +740,7 @@ class MyEpic extends React.Component {
         <View id="add_wish" activePanel="add_wish">
           <Panel id="add_wish">
           	<PanelHeader left={<HeaderButton onClick={this.onBackClick}><Icon24Back/></HeaderButton>}> Добавить Желание</PanelHeader>
+             <Group>
              <FormLayout>
               <FormLayoutGroup top="Вставьте ссылку на продукт">
               <Tooltip text="Если ссылка из Яндекс маркета, то вся информация о продукте заполнится автоматически" cornerOffset={-10}
@@ -755,6 +756,7 @@ class MyEpic extends React.Component {
                   </FormLayoutGroup>
               }
             </FormLayout>
+            </Group>
 
            
           	{
