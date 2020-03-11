@@ -74,6 +74,8 @@ class MyEpic extends React.Component {
     this.onBackClick = this.onBackClick.bind(this);
     this.loadFriendsWishes = this.loadFriendsWishes.bind(this);
     this.callShareDialog = this.callShareDialog.bind(this);
+    this.callShareDialogFriend = this.callShareDialogFriend.bind(this);
+    
     this.onDeleteGiftClickHandler = this.onDeleteGiftClickHandler.bind(this);
     this.historyScreen = [this.state.activeStory]
     // this.loadWishList = this.loadWishList.bind(this);
@@ -417,6 +419,9 @@ class MyEpic extends React.Component {
   callShareDialog(e) {
     connect.send("VKWebAppShare", {"link": "https://vk.com/app7241610#"+this.state.user_owner_id});
   }
+  callShareDialogFriend(e) {
+    connect.send("VKWebAppShare", {"link": "https://vk.com/app7241610#"+this.state.friend_id});
+  }
 
 
 
@@ -517,6 +522,7 @@ class MyEpic extends React.Component {
               <div class="flexbox-container" 
                    style={{marginTop: "20px"}}>
                   <div><Avatar src={this.state.friend_avatar} size={170} /></div>
+                  <div><div class="ava3" onClick={this.callShareDialogFriend.bind(this)}><div class="centered6"><Icon24ShareOutline style={{color: "#000000"}} class="iconShare" /></div><p>Поделиться</p></div></div>
               </div>
               <div class="centered7">{this.state.friend_name}</div><div class="centered8" style={{color: "#888888"}}><p>Желаний: {this.state.friend_items.length}</p></div>
              <Group>
