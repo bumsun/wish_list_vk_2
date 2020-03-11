@@ -19,8 +19,10 @@
     "react-scripts": "^3.2.0"
   },
   "dependencies": {
+    "@vkontakte/create-vk-mini-app": "^1.6.1",
     "@vkontakte/icons": "^1.12.0",
     "@vkontakte/vk-connect": "^1.6.11",
+    "@vkontakte/vk-mini-apps-api": "^0.6.4",
     "@vkontakte/vkui": "^2.34.0",
     "@vkontakte/vkui-connect-mock": "^1.0.62",
     "babel-eslint": "^10.0.3",
