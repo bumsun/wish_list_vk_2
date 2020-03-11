@@ -521,6 +521,7 @@ class MyEpic extends React.Component {
             <PanelHeader left={<PanelHeaderBack onClick={this.onBackClick} />}>Желания друга</PanelHeader>
               <div class="flexbox-container" 
                    style={{marginTop: "20px"}}>
+                  <div><div class="ava2"><div class="centered5">{this.state.friend_items.length}</div><p style={{margin: 5}}>Желаний</p></div></div>
                   <div><Avatar src={this.state.friend_avatar} size={170} /></div>
                   <div><div class="ava3" onClick={this.callShareDialogFriend.bind(this)}><div class="centered6"><Icon24ShareOutline style={{color: "#000000"}} class="iconShare" /></div><p>Поделиться</p></div></div>
               </div>
