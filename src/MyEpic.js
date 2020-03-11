@@ -751,7 +751,7 @@ class MyEpic extends React.Component {
               {
                 
                 this.state.wish_reference_url != undefined && this.state.wish_reference_url.length > 1 && this.state.wish_reference_url.indexOf("market.yandex.ru") == -1 &&
-                  <FormLayoutGroup top="Напишите название подарка">
+                  <FormLayoutGroup top="Напишите название подарка и цену">
                   <Input onChange={this.handleChangeForAddWish} name="wish_name" />
                   </FormLayoutGroup>
               }
