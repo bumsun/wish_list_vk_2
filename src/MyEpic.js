@@ -63,7 +63,8 @@ class MyEpic extends React.Component {
       gift_description: null,
       gift_already_presented: null,
       tooltip1: true,
-      tooltip2: true
+      tooltip2: true,
+      validate_url: false
     };
 
     this.onStoryChange = this.onStoryChange.bind(this);
@@ -108,6 +109,10 @@ class MyEpic extends React.Component {
   }
 
   onAddWish (e) {
+    if(this.state.wish_reference_url.indexOf == -1){
+        this.setState({validate_url: true});
+        return
+    }
     this.postData('https://upmob.ru/api/mirrorWishList', {method_name:"addGift",owner_id: this.state.wish_owner_id,owner_name: this.state.user_name, owner_avatar: this.state.user_avatar, name: this.state.wish_name, description:this.state.wish_description,reference_url:this.state.wish_reference_url, price:this.state.wish_price, photo_url:this.state.wish_photo_url, importance:this.state.wish_importance})
       .then(data => {
           console.log(JSON.stringify(data)) // JSON-строка полученная после вызова `response.json()`
@@ -118,6 +123,7 @@ class MyEpic extends React.Component {
           this.setState({wish_photo_url: null});
           this.setState({wish_description: null});
           this.setState({wish_name: null});
+          
       })
       .catch(error => console.error(error));
   }
@@ -755,7 +761,12 @@ class MyEpic extends React.Component {
               <FormLayoutGroup top="Вставьте ссылку на продукт">
               <Tooltip text="Если ссылка из Яндекс маркета, то вся информация о продукте заполнится автоматически" cornerOffset={-10}
                     offsetX={7} alignX="right" onClose={() => this.setState({ tooltip1: false})} isShown={this.state.tooltip1}>
-                <Input type="url" pattern="https?://.+" maxlength="3000" top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
+                  {
+                    this.state.validate_url != undefined && this.state.validate_url &&
+                      <div class="centered8" style={{color: "#ff0000"}}><p>введите корректный URL</p></div>
+                  }
+                
+                <Input maxlength="3000" top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
               </Tooltip>
               </FormLayoutGroup>
               {
