@@ -97,8 +97,11 @@ class MyEpic extends React.Component {
     if(e.currentTarget.dataset.story == "add_wish"){
       this.historyScreen.push(e.currentTarget.dataset.story)
     }else{
+
       this.historyScreen = [e.currentTarget.dataset.story]
-      connect.send("VKWebAppGetAuthToken", {"app_id": 7241610, "scope": "friends"});
+      if(e.currentTarget.dataset.story != "wish"){
+          connect.send("VKWebAppGetAuthToken", {"app_id": 7241610, "scope": "friends"});
+      }
     }
   	
     this.setState({ activeStory: e.currentTarget.dataset.story })
