@@ -109,7 +109,7 @@ class MyEpic extends React.Component {
   }
 
   onAddWish (e) {
-    if(this.state.wish_reference_url.indexOf == -1){
+    if(this.state.wish_reference_url.indexOf("http") == -1){
         this.setState({validate_url: true});
         return
     }
