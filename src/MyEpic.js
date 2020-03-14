@@ -762,7 +762,7 @@ class MyEpic extends React.Component {
               <Tooltip text="Если ссылка из Яндекс маркета, то вся информация о продукте заполнится автоматически" cornerOffset={-10}
                     offsetX={7} alignX="right" onClose={() => this.setState({ tooltip1: false})} isShown={this.state.tooltip1}>
                   {
-                    this.state.validate_url != undefined && this.state.validate_url &&
+                    this.state.validate_url != undefined && this.state.validate_url == true &&
                       <div class="centered8" style={{color: "#ff0000"}}><p>введите корректный URL</p></div>
                   }
                 
