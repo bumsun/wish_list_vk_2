@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@vkontakte/create-vk-mini-app": "^1.6.1",
-    "@vkontakte/icons": "^1.12.0",
+    "@vkontakte/icons": "^1.17.1",
     "@vkontakte/vk-connect": "^1.6.11",
     "@vkontakte/vk-mini-apps-api": "^0.6.4",
     "@vkontakte/vkui": "^3.4.1",

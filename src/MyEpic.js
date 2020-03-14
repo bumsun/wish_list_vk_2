@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import fetchJsonp from 'fetch-jsonp';
-import { Div,View, Panel, PanelHeader, Group, List, Cell,Tabbar,TabbarItem,Epic,Button, Avatar,Slider, Input, FormLayoutGroup,FormLayout, HeaderButton, Tooltip} from '@vkontakte/vkui';
+import { Div,View, Panel, PanelHeader, Group, List, Cell,Tabbar,TabbarItem,Epic,Button, Avatar,Slider, Input, FormLayoutGroup,FormLayout, PanelHeaderButton, Tooltip} from '@vkontakte/vkui';
 import PanelHeaderBack from '@vkontakte/vkui/dist/components/PanelHeaderBack/PanelHeaderBack';
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
 import Icon28Search from '@vkontakte/icons/dist/28/search';
@@ -746,7 +746,7 @@ class MyEpic extends React.Component {
         </View>
         <View id="add_wish" activePanel="add_wish">
           <Panel id="add_wish">
-          	<PanelHeader left={<HeaderButton onClick={this.onBackClick}><Icon24Back/></HeaderButton>}> Добавить Желание</PanelHeader>
+          	<PanelHeader left={<PanelHeaderButton onClick={this.onBackClick}><Icon24Back/></PanelHeaderButton>}> Добавить Желание</PanelHeader>
              <Group>
              <FormLayout>
               <FormLayoutGroup top="Вставьте ссылку на продукт">
