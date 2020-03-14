@@ -761,14 +761,15 @@ class MyEpic extends React.Component {
               <FormLayoutGroup top="Вставьте ссылку на продукт">
               <Tooltip text="Если ссылка из Яндекс маркета, то вся информация о продукте заполнится автоматически" cornerOffset={-10}
                     offsetX={7} alignX="right" onClose={() => this.setState({ tooltip1: false})} isShown={this.state.tooltip1}>
-                  {
-                    this.state.validate_url != undefined && this.state.validate_url == true &&
-                      <div class="centered8" style={{color: "#ff0000"}}><p>введите корректный URL</p></div>
-                  }
+                  
                 
                 <Input maxlength="3000" top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
               </Tooltip>
               </FormLayoutGroup>
+              {
+                this.state.validate_url != undefined && this.state.validate_url &&
+                 <Div  style={{color: "#ff0000"}}>Введите корректный URL</Div>
+              }
               {
                 
                 this.state.wish_reference_url != undefined && this.state.wish_reference_url.length > 1 && this.state.wish_reference_url.indexOf("market.yandex.ru") == -1 &&
@@ -801,6 +802,7 @@ class MyEpic extends React.Component {
 	            {this.state.wish_name}
 	            </Cell>
           	}
+            
           	{
               this.state.wish_name != undefined &&
               <Div class="centered4">
