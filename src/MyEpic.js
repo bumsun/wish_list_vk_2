@@ -755,14 +755,14 @@ class MyEpic extends React.Component {
               <FormLayoutGroup top="Вставьте ссылку на продукт">
               <Tooltip text="Если ссылка из Яндекс маркета, то вся информация о продукте заполнится автоматически" cornerOffset={-10}
                     offsetX={7} alignX="right" onClose={() => this.setState({ tooltip1: false})} isShown={this.state.tooltip1}>
-                <Input top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
+                <Input type="url" pattern="https?://.+" maxlength="1300" top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
               </Tooltip>
               </FormLayoutGroup>
               {
                 
                 this.state.wish_reference_url != undefined && this.state.wish_reference_url.length > 1 && this.state.wish_reference_url.indexOf("market.yandex.ru") == -1 &&
                   <FormLayoutGroup top="Напишите название подарка и цену">
-                  <Input onChange={this.handleChangeForAddWish} name="wish_name" />
+                  <Input maxlength="200" onChange={this.handleChangeForAddWish} name="wish_name" />
                   </FormLayoutGroup>
               }
             </FormLayout>
