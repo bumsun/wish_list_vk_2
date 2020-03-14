@@ -755,7 +755,7 @@ class MyEpic extends React.Component {
               <FormLayoutGroup top="Вставьте ссылку на продукт">
               <Tooltip text="Если ссылка из Яндекс маркета, то вся информация о продукте заполнится автоматически" cornerOffset={-10}
                     offsetX={7} alignX="right" onClose={() => this.setState({ tooltip1: false})} isShown={this.state.tooltip1}>
-                <Input type="url" pattern="https?://.+" maxlength="1300" top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
+                <Input type="url" pattern="https?://.+" maxlength="3000" top="Ссылка" onChange={this.handleChangeForAddWish} name="wish_reference_url" />
               </Tooltip>
               </FormLayoutGroup>
               {
