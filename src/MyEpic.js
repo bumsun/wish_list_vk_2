@@ -243,7 +243,10 @@ class MyEpic extends React.Component {
             break;
           case 'VKWebAppAccessTokenReceived':
     			this.setState({ authToken : e.detail.data.access_token });
-    			this.getFriends()
+          setTimeout(function(){
+              this.getFriends()
+          }, 1000);
+    			
     			break;
           case 'VKWebAppCallAPIMethodResult':
             debugger;
@@ -252,7 +255,10 @@ class MyEpic extends React.Component {
             }
             break;
           case 'VKWebAppGetAuthToken':
-            this.getFriends()
+          setTimeout(function(){
+              this.getFriends()
+          }, 2000);
+            
             break;
           default:
             break;
