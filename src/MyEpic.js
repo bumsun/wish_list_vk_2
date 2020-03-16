@@ -242,10 +242,11 @@ class MyEpic extends React.Component {
             
             break;
           case 'VKWebAppAccessTokenReceived':
-    			this.setState({ authToken : e.detail.data.access_token });
-          setTimeout(function(){
-              this.getFriends()
-          }, 1000);
+      			this.setState({ authToken : e.detail.data.access_token });
+            setTimeout(() => {
+              this.getFriends();
+            }, 1000);
+            
     			
     			break;
           case 'VKWebAppCallAPIMethodResult':
@@ -255,9 +256,10 @@ class MyEpic extends React.Component {
             }
             break;
           case 'VKWebAppGetAuthToken':
-          setTimeout(function(){
-              this.getFriends()
-          }, 2000);
+            setTimeout(() => {
+              this.getFriends();
+            }, 2000);
+
             
             break;
           default:
@@ -265,6 +267,7 @@ class MyEpic extends React.Component {
         }
       }
     });
+
     connect.send('VKWebAppInit');
     connect.send('VKWebAppGetUserInfo', {});
     
@@ -281,7 +284,9 @@ class MyEpic extends React.Component {
     //     console.log("error= " + JSON.stringify(error));
     //   });
   }
-
+  sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
   async handleChangeForAddWish(event) {
       const target = event.target;
       console.log('event', event);
