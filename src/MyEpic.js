@@ -103,7 +103,7 @@ class MyEpic extends React.Component {
       this.historyScreen.push(e.currentTarget.dataset.story)
     }else{
       if(this.state.friends.length == 0){
-        this.setStorage()
+        this.getStorage()
       }
       this.historyScreen = [e.currentTarget.dataset.story]
       if(e.currentTarget.dataset.story != "wish"){
