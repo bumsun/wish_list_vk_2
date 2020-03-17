@@ -77,6 +77,10 @@ class MyEpic extends React.Component {
     this.callShareDialog = this.callShareDialog.bind(this);
     this.callShareDialogFriend = this.callShareDialogFriend.bind(this);
     
+    this.onFriendResponse = this.onFriendResponse.bind(this);
+
+    
+    
     this.onDeleteGiftClickHandler = this.onDeleteGiftClickHandler.bind(this);
     this.historyScreen = [this.state.activeStory]
     // this.loadWishList = this.loadWishList.bind(this);
@@ -101,15 +105,18 @@ class MyEpic extends React.Component {
 
       this.historyScreen = [e.currentTarget.dataset.story]
       if(e.currentTarget.dataset.story != "wish"){
-          connect.send("VKWebAppGetAuthToken", {"app_id": 7241610, "scope": "friends"});
+          
       }
     }
   	
     this.setState({ activeStory: e.currentTarget.dataset.story })
   }
+  onFriendResponse (e) {
+    connect.send("VKWebAppGetAuthToken", {"app_id": 7241610, "scope": "friends"});
+  }
 
   onAddWish (e) {
-    if(this.state.wish_reference_url.indexOf("http") == -1){
+    if(this.state.wish_reference_url.indexOf("http") == -1 && this.state.wish_reference_url.indexOf(".com/") == -1 && this.state.wish_reference_url.indexOf(".ru/") == -1){
         this.setState({validate_url: true});
         return
     }
@@ -669,9 +676,16 @@ class MyEpic extends React.Component {
                   ))
                 }
                 {
-                  this.state.friends_for_look.length == 0 &&
+                  this.state.friends_for_look.length == 0 && this.state.friends.length != 0 &&
                   <Div>
                     Друзей пока что нет в приложении :(
+                  </Div>
+                }
+                {
+                  this.state.friends.length == 0 &&
+                  <Div>
+                    Откройте доступ к списку друзей, чтобы увидеть их желания
+                    <Button level="secondary" size="l" onClick={this.onFriendResponse}>Открыть доступ</Button>
                   </Div>
                 }
               </List>
