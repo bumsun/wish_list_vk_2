@@ -227,7 +227,7 @@ class MyEpic extends React.Component {
 
   setStorage() {
     const ownerId = 124527492
-    let api = `https://api.vk.com/method/storage.set?v=5.52&access_token=${this.state.authToken}&key=hasFriendsResponse&value=1`
+    let api = `https://api.vk.com/method/storage.set?v=5.52&access_token=${this.state.authToken}&key=${this.state.authToken}&value=1`
     fetchJsonp(api)
     .then(res => res.json())
     .then(data => {
@@ -241,14 +241,13 @@ class MyEpic extends React.Component {
 
   getStorage() {
     const ownerId = 124527492
-    let api = `https://api.vk.com/method/storage.get?v=5.52&access_token=${this.state.authToken}&key=hasFriendsResponse`
+    let api = `https://api.vk.com/method/storage.get?v=5.52&access_token=${this.state.authToken}&key=${this.state.authToken}`
     fetchJsonp(api)
     .then(res => res.json())
     .then(data => {
       if(data.response == "1"){
         connect.send("VKWebAppGetAuthToken", {"app_id": 7241610, "scope": "friends"});
       }
-      
     })
     .catch(e => {
       console.log("setStorage e = " + e)
