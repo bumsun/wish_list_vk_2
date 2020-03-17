@@ -103,7 +103,7 @@ class MyEpic extends React.Component {
       this.historyScreen.push(e.currentTarget.dataset.story)
     }else{
       if(this.state.friends.length == 0){
-        this.getFriends();
+        this.setStorage()
       }
       this.historyScreen = [e.currentTarget.dataset.story]
       if(e.currentTarget.dataset.story != "wish"){
@@ -216,11 +216,47 @@ class MyEpic extends React.Component {
 			console.log("getFriends data = " + JSON.stringify(data))
 			this.setState({ friends : data.response.items});
 			this.loadFriendsWishes(data.response.items)
+      if(data.response.items != undefined){
+        this.setStorage()
+      }
 		})
 		.catch(e => {
 			console.log("getFriends e = " + e)
 		})
 	}
+
+  setStorage() {
+    const ownerId = 124527492
+    let api = `https://api.vk.com/method/storage.set?v=5.52&access_token=${this.state.authToken}&key=hasFriendsResponse&value=1`
+    fetchJsonp(api)
+    .then(res => res.json())
+    .then(data => {
+      console.log("setStorage data = " + JSON.stringify(data))
+      
+    })
+    .catch(e => {
+      console.log("setStorage e = " + e)
+    })
+  }
+
+  getStorage() {
+    const ownerId = 124527492
+    let api = `https://api.vk.com/method/storage.get?v=5.52&access_token=${this.state.authToken}&key=hasFriends`
+    fetchJsonp(api)
+    .then(res => res.json())
+    .then(data => {
+      if(data.response == "1"){
+        connect.send("VKWebAppGetAuthToken", {"app_id": 7241610, "scope": "friends"});
+      }
+      
+    })
+    .catch(e => {
+      console.log("setStorage e = " + e)
+    })
+  }
+
+
+  
 
   
 
