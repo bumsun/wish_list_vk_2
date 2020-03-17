@@ -283,7 +283,6 @@ class MyEpic extends React.Component {
             if(window.location.hash != undefined && window.location.hash.length > 0){
               this.loadWishlistByShare(window.location.hash.replace("#",""))
             }
-            this.getStorage()
             break;
           case 'VKWebAppInit':
             
@@ -292,6 +291,8 @@ class MyEpic extends React.Component {
             this.setState({ authToken : e.detail.data.access_token });
             if(e.detail.data.scope == "friends"){
               this.getFriends();
+            }else{
+              this.getStorage()
             }
       			
             
