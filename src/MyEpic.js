@@ -263,6 +263,7 @@ class MyEpic extends React.Component {
   componentDidMount() {
     connect.subscribe((e) => {
       console.log("e = " + JSON.stringify(e));
+      console.log("e = " + JSON.stringify(e));
       if (e.detail.hasOwnProperty('type')) {
         switch (e.detail.type) {
           case 'VKWebAppGetUserInfoResult':
@@ -271,6 +272,7 @@ class MyEpic extends React.Component {
             this.setState({ user_avatar: e.detail.data.photo_200 });
             this.setState({ user_name: e.detail.data.first_name + " " + e.detail.data.last_name});
             this.setState({ wish_owner_id: e.detail.data.id + ""});
+            this.setState({ authToken : e.detail.data.access_token });
 
             if(this.state.user_owner_id == null){
             	this.setState({ user_owner_id: e.detail.data.id + ""});
@@ -287,8 +289,12 @@ class MyEpic extends React.Component {
             
             break;
           case 'VKWebAppAccessTokenReceived':
-      			this.setState({ authToken : e.detail.data.access_token });
-            this.getFriends();
+            this.setState({ authToken : e.detail.data.access_token });
+            if(e.detail.data.scope == "friends"){
+              this.getFriends();
+            }
+      			
+            
             // setTimeout(() => {
             //   this.getFriends();
             // }, 1000);
@@ -302,7 +308,7 @@ class MyEpic extends React.Component {
             }
             break;
           case 'VKWebAppGetAuthToken':
-            this.getFriends();
+            // this.getFriends();
             // setTimeout(() => {
             //   this.getFriends();
             // }, 2000);
@@ -317,6 +323,7 @@ class MyEpic extends React.Component {
 
     connect.send('VKWebAppInit');
     connect.send('VKWebAppGetUserInfo', {});
+    connect.send("VKWebAppGetAuthToken", {"app_id": 7241610});
     
 
     // connect
