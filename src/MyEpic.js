@@ -102,7 +102,9 @@ class MyEpic extends React.Component {
     if(e.currentTarget.dataset.story == "add_wish"){
       this.historyScreen.push(e.currentTarget.dataset.story)
     }else{
-
+      if(this.state.friends.length == 0){
+        this.getFriends();
+      }
       this.historyScreen = [e.currentTarget.dataset.story]
       if(e.currentTarget.dataset.story != "wish"){
           
@@ -685,7 +687,10 @@ class MyEpic extends React.Component {
                   this.state.friends.length == 0 &&
                   <Div>
                     Откройте доступ к списку друзей, чтобы увидеть их желания
-                    <Button level="secondary" size="l" onClick={this.onFriendResponse}>Открыть доступ</Button>
+                    <div class="centered10">
+                     <Button level="secondary" size="l" onClick={this.onFriendResponse}>Открыть доступ</Button>
+                   </div>
+                    
                   </Div>
                 }
               </List>
